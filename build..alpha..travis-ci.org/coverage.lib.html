@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-mongoose-paginate/mongoose-paginate/index.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-mongoose-paginate/node_modules/mongoose-paginate/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-mongoose-paginate">npmtest-mongoose-paginate (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-mongoose-paginate/mongoose-paginate/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-mongoose-paginate/node_modules/mongoose-paginate/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">9.3% <small>(4 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-mongoose-paginate/mongoose-paginate/</a> » index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-mongoose-paginate/node_modules/mongoose-paginate/</a> &#187; index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -437,81 +439,81 @@
  *
  * @returns {Promise}
  */
-<span class="fstat-no" title="function not covered">function paginate(query, options, callback) {</span>
-<span class="cstat-no" title="statement not covered">    query   = query || {};</span>
-<span class="cstat-no" title="statement not covered">    options = Object.assign({}, paginate.options, options);</span>
+<span class="fstat-no" title="function not covered" >function paginate(query, options, callback) {</span>
+<span class="cstat-no" title="statement not covered" >    query   = query || {};</span>
+<span class="cstat-no" title="statement not covered" >    options = Object.assign({}, paginate.options, options);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var select     = options.select;</span>
-<span class="cstat-no" title="statement not covered">    var sort       = options.sort;</span>
-<span class="cstat-no" title="statement not covered">    var populate   = options.populate;</span>
-<span class="cstat-no" title="statement not covered">    var lean       = options.lean || false;</span>
-<span class="cstat-no" title="statement not covered">    var leanWithId = options.hasOwnProperty('leanWithId') ? options.leanWithId : true;</span>
+<span class="cstat-no" title="statement not covered" >    var select     = options.select;</span>
+<span class="cstat-no" title="statement not covered" >    var sort       = options.sort;</span>
+<span class="cstat-no" title="statement not covered" >    var populate   = options.populate;</span>
+<span class="cstat-no" title="statement not covered" >    var lean       = options.lean || false;</span>
+<span class="cstat-no" title="statement not covered" >    var leanWithId = options.hasOwnProperty('leanWithId') ? options.leanWithId : true;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var limit = options.hasOwnProperty('limit') ? options.limit : 10;</span>
-<span class="cstat-no" title="statement not covered">    var skip, offset, page;</span>
+<span class="cstat-no" title="statement not covered" >    var limit = options.hasOwnProperty('limit') ? options.limit : 10;</span>
+<span class="cstat-no" title="statement not covered" >    var skip, offset, page;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (options.hasOwnProperty('offset')) {</span>
-<span class="cstat-no" title="statement not covered">        offset = options.offset;</span>
-<span class="cstat-no" title="statement not covered">        skip   = offset;</span>
-    } else <span class="cstat-no" title="statement not covered">if (options.hasOwnProperty('page')) {</span>
-<span class="cstat-no" title="statement not covered">        page = options.page;</span>
-<span class="cstat-no" title="statement not covered">        skip = (page - 1) * limit;</span>
+<span class="cstat-no" title="statement not covered" >    if (options.hasOwnProperty('offset')) {</span>
+<span class="cstat-no" title="statement not covered" >        offset = options.offset;</span>
+<span class="cstat-no" title="statement not covered" >        skip   = offset;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (options.hasOwnProperty('page')) {</span>
+<span class="cstat-no" title="statement not covered" >        page = options.page;</span>
+<span class="cstat-no" title="statement not covered" >        skip = (page - 1) * limit;</span>
     } else {
-<span class="cstat-no" title="statement not covered">        offset = 0;</span>
-<span class="cstat-no" title="statement not covered">        page   = 1;</span>
-<span class="cstat-no" title="statement not covered">        skip   = offset;</span>
+<span class="cstat-no" title="statement not covered" >        offset = 0;</span>
+<span class="cstat-no" title="statement not covered" >        page   = 1;</span>
+<span class="cstat-no" title="statement not covered" >        skip   = offset;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var promises = {</span>
+<span class="cstat-no" title="statement not covered" >    var promises = {</span>
         docs:  Promise.resolve([]),
         count: this.count(query).exec()
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (limit) {</span>
-<span class="cstat-no" title="statement not covered">        var query = this.find(query)</span>
+<span class="cstat-no" title="statement not covered" >    if (limit) {</span>
+<span class="cstat-no" title="statement not covered" >        var query = this.find(query)</span>
                         .select(select)
                         .sort(sort)
                         .skip(skip)
                         .limit(limit)
                         .lean(lean);
 &nbsp;
-<span class="cstat-no" title="statement not covered">        if (populate) {</span>
-<span class="cstat-no" title="statement not covered">            [].concat(populate).forEach(<span class="fstat-no" title="function not covered">function(item) {</span></span>
-<span class="cstat-no" title="statement not covered">                query.populate(item);</span>
+<span class="cstat-no" title="statement not covered" >        if (populate) {</span>
+<span class="cstat-no" title="statement not covered" >            [].concat(populate).forEach(<span class="fstat-no" title="function not covered" >function(item) {</span></span>
+<span class="cstat-no" title="statement not covered" >                query.populate(item);</span>
             });
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered">        promises.docs = query.exec();</span>
+<span class="cstat-no" title="statement not covered" >        promises.docs = query.exec();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">        if (lean &amp;&amp; leanWithId) {</span>
-<span class="cstat-no" title="statement not covered">            promises.docs = promises.docs.then(<span class="fstat-no" title="function not covered">function(docs) {</span></span>
-<span class="cstat-no" title="statement not covered">                docs.forEach(<span class="fstat-no" title="function not covered">function(doc) {</span></span>
-<span class="cstat-no" title="statement not covered">                    doc.id = String(doc._id);</span>
+<span class="cstat-no" title="statement not covered" >        if (lean &amp;&amp; leanWithId) {</span>
+<span class="cstat-no" title="statement not covered" >            promises.docs = promises.docs.then(<span class="fstat-no" title="function not covered" >function(docs) {</span></span>
+<span class="cstat-no" title="statement not covered" >                docs.forEach(<span class="fstat-no" title="function not covered" >function(doc) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    doc.id = String(doc._id);</span>
                 });
 &nbsp;
-<span class="cstat-no" title="statement not covered">                return docs;</span>
+<span class="cstat-no" title="statement not covered" >                return docs;</span>
             });
         }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return Promise.props(promises)</span>
-        .then(<span class="fstat-no" title="function not covered">function(data) {</span>
-<span class="cstat-no" title="statement not covered">            var result = {</span>
+<span class="cstat-no" title="statement not covered" >    return Promise.props(promises)</span>
+        .then(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >            var result = {</span>
                 docs:  data.docs,
                 total: data.count,
                 limit: limit
             };
 &nbsp;
-<span class="cstat-no" title="statement not covered">            if (offset !== undefined) {</span>
-<span class="cstat-no" title="statement not covered">                result.offset = offset;</span>
+<span class="cstat-no" title="statement not covered" >            if (offset !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                result.offset = offset;</span>
             }
 &nbsp;
-<span class="cstat-no" title="statement not covered">            if (page !== undefined) {</span>
-<span class="cstat-no" title="statement not covered">                result.page  = page;</span>
-<span class="cstat-no" title="statement not covered">                result.pages = Math.ceil(data.count / limit) || 1;</span>
+<span class="cstat-no" title="statement not covered" >            if (page !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                result.page  = page;</span>
+<span class="cstat-no" title="statement not covered" >                result.pages = Math.ceil(data.count / limit) || 1;</span>
             }
 &nbsp;
-<span class="cstat-no" title="statement not covered">            return result;</span>
+<span class="cstat-no" title="statement not covered" >            return result;</span>
         })
         .asCallback(callback);
 }
@@ -519,17 +521,16 @@
 /**
  * @param {Schema} schema
  */
-module.exports = <span class="fstat-no" title="function not covered">function(schema) {</span>
-<span class="cstat-no" title="statement not covered">    schema.statics.paginate = paginate;</span>
+module.exports = <span class="fstat-no" title="function not covered" >function(schema) {</span>
+<span class="cstat-no" title="statement not covered" >    schema.statics.paginate = paginate;</span>
 };
 &nbsp;
 module.exports.paginate = paginate;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 19:06:12 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 19 2017 09:56:18 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
